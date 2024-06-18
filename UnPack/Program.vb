@@ -50,9 +50,11 @@ Module Program
 
                     Dim unknow As Int16 = br.ReadInt16()
                     Dim ms As New MemoryStream()
+
                     Using ds = New DeflateStream(New MemoryStream(br.ReadBytes(size - 6)), CompressionMode.Decompress)
                         ds.CopyTo(ms)
                     End Using
+
 
                     Dim position = br.BaseStream.Position
                     size = sizeUncompressed
