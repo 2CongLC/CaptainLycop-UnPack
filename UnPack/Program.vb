@@ -48,7 +48,7 @@ Module Program
                     Array.Reverse(variable)
                     Dim sizeUncompressed = BitConverter.ToInt32(variable, 0)
 
-                    br.ReadInt16()
+                    Dim unknow As Int16 = br.ReadInt16()
                     Dim ms As New MemoryStream()
                     Using ds = New DeflateStream(New MemoryStream(br.ReadBytes(size - 6)), CompressionMode.Decompress)
                         ds.CopyTo(ms)
